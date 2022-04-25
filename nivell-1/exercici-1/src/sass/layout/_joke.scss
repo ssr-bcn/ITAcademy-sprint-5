@@ -1,0 +1,41 @@
+#joke-container {
+  margin: 0;
+  padding: 20px;
+  width: 70%;
+  background-color: #ccc;
+  text-align: center;
+
+  & h1 {
+    margin: 0 0 15px 0;
+  }
+
+  & p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    margin: 30px 0;
+    padding: 0 17%;
+    min-height: 4rem;
+    line-height: 1.5rem;
+
+    &::before, &::after {
+      position: absolute;
+      z-index: -1;
+      font-size: 6rem;
+      font-weight: bold;
+      color: #aaa;
+    }
+
+    &::before {
+      left: 10%;
+      content: '«';
+    }
+
+    &::after {
+      right: 10%;
+      content: '»';
+    }
+  }
+}

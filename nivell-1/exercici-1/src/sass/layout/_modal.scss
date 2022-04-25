@@ -1,0 +1,17 @@
+.modal {
+  position: absolute;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  font-size: 2rem;
+
+  & p {
+    margin: 15px 0 0;
+  }
+}
