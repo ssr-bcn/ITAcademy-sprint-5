@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "imagemin2": "imagemin nivell-1/exercici-2/src/img/* --out-dir=nivell-1/exercici-2/dist/img -p"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "imagemin-cli": "^7.0.0",
     "typescript": "^4.6.3"
   }
 }
