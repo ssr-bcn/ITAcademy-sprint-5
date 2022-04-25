@@ -36,6 +36,7 @@ let UI = {
 
   showJoke(joke :string) {
     this.jokeWrapper?.replaceChildren( document.createTextNode(joke) );
+    this.jokeWrapper?.classList.add('filled');
     this.hideModal();
   },
 

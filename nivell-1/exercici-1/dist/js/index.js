@@ -29,8 +29,9 @@ let UI = {
     },
     jokeWrapper: document.getElementById('joke-text'),
     showJoke(joke) {
-        var _a;
+        var _a, _b;
         (_a = this.jokeWrapper) === null || _a === void 0 ? void 0 : _a.replaceChildren(document.createTextNode(joke));
+        (_b = this.jokeWrapper) === null || _b === void 0 ? void 0 : _b.classList.add('filled');
         this.hideModal();
     },
     showModal(msg) {
