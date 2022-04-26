@@ -1,0 +1,23 @@
+.modal {
+  position: absolute;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  padding: 0 10%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  font-size: 1.3rem;
+
+  & p {
+    margin: 15px 0 0;
+    text-align: center;
+
+    @media screen and (min-width: 576px) {
+      font-size: 2rem;
+    }
+  }
+}
