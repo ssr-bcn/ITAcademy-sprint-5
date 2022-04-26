@@ -147,7 +147,6 @@ let UI = {
     getAPIResponse( jokeRequest )
       .then( response => {
         UI.hideModal();
-        console.log(response);
 
         if (response.joke) {
           UI.showJoke(response.joke);

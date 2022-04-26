@@ -112,7 +112,6 @@ newJoke === null || newJoke === void 0 ? void 0 : newJoke.addEventListener('clic
     getAPIResponse(jokeRequest)
         .then(response => {
         UI.hideModal();
-        console.log(response);
         if (response.joke) {
             UI.showJoke(response.joke);
         }
