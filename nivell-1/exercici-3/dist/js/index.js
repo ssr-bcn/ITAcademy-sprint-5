@@ -110,7 +110,7 @@ document.addEventListener('click', function (e) {
         UI.hideModal();
     }
 });
-// Listening for a score vote
+// Listening for joke votes
 document.addEventListener('click', function (e) {
     var _a;
     if (e.target && ((_a = e.target) === null || _a === void 0 ? void 0 : _a.classList.contains('score'))) {

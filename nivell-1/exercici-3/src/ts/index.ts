@@ -143,7 +143,7 @@ let UI = {
   });
 
 
-  // Listening for a score vote
+  // Listening for joke votes
 
   document.addEventListener('click', function(e :any) {
     if ( e.target && e.target?.classList.contains('score') ) {
