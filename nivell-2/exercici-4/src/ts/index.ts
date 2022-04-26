@@ -174,7 +174,7 @@ let UI = {
       let feedback :Element, joke :string, score :number, date :string;
 
       feedback = e.target.parentElement;
-      joke = feedback?.parentElement?.firstChild?.nodeValue || '';
+      joke = feedback?.parentElement?.firstChild?.textContent || '';
       score = e.target.getAttribute('data-score');
       let now = new Date();
       date = now.toISOString();

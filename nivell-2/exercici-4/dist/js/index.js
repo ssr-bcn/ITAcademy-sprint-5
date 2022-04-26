@@ -134,7 +134,7 @@ document.addEventListener('click', (e) => {
     if (e.target && ((_a = e.target) === null || _a === void 0 ? void 0 : _a.classList.contains('score'))) {
         let feedback, joke, score, date;
         feedback = e.target.parentElement;
-        joke = ((_c = (_b = feedback === null || feedback === void 0 ? void 0 : feedback.parentElement) === null || _b === void 0 ? void 0 : _b.firstChild) === null || _c === void 0 ? void 0 : _c.nodeValue) || '';
+        joke = ((_c = (_b = feedback === null || feedback === void 0 ? void 0 : feedback.parentElement) === null || _b === void 0 ? void 0 : _b.firstChild) === null || _c === void 0 ? void 0 : _c.textContent) || '';
         score = e.target.getAttribute('data-score');
         let now = new Date();
         date = now.toISOString();
