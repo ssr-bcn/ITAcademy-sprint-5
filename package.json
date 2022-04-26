@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "imagemin2": "imagemin nivell-1/exercici-2/src/img/* --out-dir=nivell-1/exercici-2/dist/img -p"
+    "imagemin2": "imagemin nivell-1/exercici-2/src/img/* --out-dir=nivell-1/exercici-2/dist/img -p",
+    "imagemin6": "imagemin nivell-3/exercici-6/src/img/* --out-dir=nivell-3/exercici-6/dist/img -p"
   },
   "keywords": [],
   "author": "",
