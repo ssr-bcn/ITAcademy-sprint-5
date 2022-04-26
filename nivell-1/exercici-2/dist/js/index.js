@@ -1,6 +1,8 @@
 "use strict";
+// CONFIGURATION --------------------------------------------------------------
 const JOKE_API = 'https://icanhazdadjoke.com';
-// Requesting a joke
+// FUNCTIONS ------------------------------------------------------------------
+// Asking for a new joke
 let request = new Request(JOKE_API, {
     method: 'GET',
     headers: new Headers({
@@ -9,19 +11,12 @@ let request = new Request(JOKE_API, {
     })
 });
 function getRandomJoke() {
-    fetch(request)
+    return fetch(request)
         .then(res => res.json())
-        .then(json => {
-        console.log(json);
-        UI.showJoke(json.joke);
-    })
-        .catch(error => {
-        console.log(error);
-        UI.hideModal();
-        UI.showModal(UI.message.error);
-    });
+        .then(json => json)
+        .catch(error => error);
 }
-// INTERFACE
+// INTERFACE ------------------------------------------------------------------
 let UI = {
     message: {
         waiting: 'Estem buscant un acudit...',
@@ -55,12 +50,24 @@ let UI = {
         modal === null || modal === void 0 ? void 0 : modal.remove();
     }
 };
-// EVENT LISTENERS
+// EVENT LISTENERS ------------------------------------------------------------
+// Listening for a new joke request
 let newJoke = document.getElementById('next-joke');
 newJoke === null || newJoke === void 0 ? void 0 : newJoke.addEventListener('click', function () {
     UI.showModal(UI.message.waiting);
-    getRandomJoke();
+    getRandomJoke()
+        .then(response => {
+        UI.hideModal();
+        console.log(response);
+        if (response.joke) {
+            UI.showJoke(response.joke);
+        }
+        else {
+            UI.showModal(UI.message.error);
+        }
+    });
 });
+// Listening for a modal close request
 document.addEventListener('click', function (e) {
     var _a;
     if (e.target && ((_a = e.target) === null || _a === void 0 ? void 0 : _a.id) === 'close') {

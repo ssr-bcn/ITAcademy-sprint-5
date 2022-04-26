@@ -1,30 +1,29 @@
+// CONFIGURATION --------------------------------------------------------------
+
 const JOKE_API :string = 'https://icanhazdadjoke.com';
 
 
-// Requesting a joke
-let request = new Request(JOKE_API, {
-  method: 'GET',
-	headers: new Headers({
-      'Accept': 'application/json',
-      'User-Agent': 'IT Academy - React Course'
-    })
-});
+// FUNCTIONS ------------------------------------------------------------------
 
-function getRandomJoke() {
-  fetch(request)
-    .then( res => res.json() )
-    .then( json => {
-      console.log(json);
-      UI.showJoke(json.joke);
-    })
-    .catch( error => {
-      console.log(error);
-      UI.hideModal();
-      UI.showModal( UI.message.error );
-    });
-}
+  // Asking for a new joke
 
-// INTERFACE
+  let request = new Request(JOKE_API, {
+    method: 'GET',
+    headers: new Headers({
+        'Accept': 'application/json',
+        'User-Agent': 'IT Academy - React Course'
+      })
+  });
+
+  function getRandomJoke() {
+    return fetch(request)
+      .then( res => res.json() )
+      .then( json => json )
+      .catch( error => error );
+  }
+
+
+// INTERFACE ------------------------------------------------------------------
 
 let UI = {
   message: {
@@ -66,16 +65,33 @@ let UI = {
 };
 
 
-// EVENT LISTENERS
-let newJoke = document.getElementById('next-joke');
+// EVENT LISTENERS ------------------------------------------------------------
 
-newJoke?.addEventListener('click', function() {
-  UI.showModal( UI.message.waiting );
-  getRandomJoke();
-});
+  // Listening for a new joke request
 
-document.addEventListener('click', function(e :any) {
-  if( e.target && e.target?.id === 'close' ){
-    UI.hideModal();
-  }
-});
+  let newJoke = document.getElementById('next-joke');
+
+  newJoke?.addEventListener('click', function() {
+    UI.showModal(UI.message.waiting);
+
+    getRandomJoke()
+      .then( response => {
+        UI.hideModal();
+        console.log(response);
+
+        if (response.joke) {
+          UI.showJoke(response.joke);
+        } else {
+          UI.showModal(UI.message.error);
+        }
+      });
+  });
+
+
+  // Listening for a modal close request
+
+  document.addEventListener('click', function(e :any) {
+    if( e.target && e.target?.id === 'close' ){
+      UI.hideModal();
+    }
+  });
