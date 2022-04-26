@@ -134,7 +134,6 @@ newJoke === null || newJoke === void 0 ? void 0 : newJoke.addEventListener('clic
     getAPIResponse(jokeRequests[index].request)
         .then(response => {
         UI.hideModal();
-        console.log(response);
         if (response[jokeRequests[index].property]) {
             UI.showJoke(response[jokeRequests[index].property]);
         }
