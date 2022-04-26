@@ -12,7 +12,7 @@ const JOKE_JOKE_API :string = 'https://v2.jokeapi.dev/joke/Any?lang=en&blacklist
 // Weather API: https://www.weatherapi.com
 const WEATHER_API :string = 'https://api.weatherapi.com/v1/current.json?key=6bcccdb5738c4fc1a1d134904222604&q=Barcelona&lang=es';
 
-const reportJokes :Array<object> = [];
+const reportJokes :Array<reviewedJoke> = [];
 
 class reviewedJoke {
   joke :string;
